@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+
+import argparse
+import sys
+
+from feitify import notify
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser("Feitify CLI")
+    parser.add_argument("--hook-url", default=None, type=str)
+    parser.add_argument("message", type=str)
+    args = parser.parse_args()
+    sys.exit(0 if notify(args.message, hook_url=args.hook_url) else -1)

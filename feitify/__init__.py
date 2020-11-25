@@ -3,7 +3,7 @@ import json
 import os
 
 
-def notify(msg, hook_url=None):
+def notify(msg: str, hook_url=None) -> bool:
     with open(os.path.join(os.environ["HOME"], ".feitifyrc"), "r") as f:
         config = json.load(f)
     resp = requests.post(
